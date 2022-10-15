@@ -33,6 +33,7 @@ class VideoService:
 
         Args:
             actor (Actor): The actor to draw.
+            color (string): A letter to set the color of the score.
         """ 
         text = actor.get_text()
         x = actor.get_position().get_x()

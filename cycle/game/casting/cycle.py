@@ -10,7 +10,8 @@ class Cycle(Actor):
     The responsibility of Cycle is to move itself.
 
     Attributes:
-        _points (int): The number of points the food is worth.
+        _cycle_color (Color): The color of the cycle.
+        _segments (Actor): The segments of the cycle.
     """
 
     def __init__(self, color):
@@ -20,9 +21,15 @@ class Cycle(Actor):
         self._prepare_body()
 
     def get_segments(self):
+        """Gets the segment of the current cycle.
+        
+        Returns:
+            List: Returns a list that will represent the segments.
+        """
         return self._segments
 
     def move_next(self):
+        """Move all segments and update velocities"""
         # move all segments
         for segment in self._segments:
             segment.move_next()
@@ -34,9 +41,15 @@ class Cycle(Actor):
             trailing.set_velocity(velocity)
 
     def get_head(self):
+        """Get the head of the cycles.
+        
+        Returns:
+            Actor: The head of the cycles.
+        """
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):
+        """It makes the body of the cyles grow."""
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()
@@ -51,13 +64,13 @@ class Cycle(Actor):
             self._segments.append(segment)
 
     def turn_head(self, velocity):
+        """Turn the head of the cycles."""
         self._segments[0].set_velocity(velocity)
 
     def _prepare_body(self):
+        """Prepare the body of the chiles, colors, texts, speeds, etc."""
         x = 0.0
         y = 0.0
-
-
         if self._cycle_color==constants.RED:
             x = int(constants.MAX_X / 4)
             y = int(constants.MAX_Y / 4)

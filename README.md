@@ -41,6 +41,7 @@ root                    (project root folder)
   +-- __main__.py       (entry point for program)
   +-- constans.py       (constants for the game)
 +-- README.md           (general info)
++-- Cycle specification (diagrams and classes of the game)
 ```
 
 ## Required Technologies
